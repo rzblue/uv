@@ -464,7 +464,7 @@ jobs:
       - name: "Build"
         working-directory: ${{ env.UV_WORKSPACE }}/crates/uv-trampoline
         run: |
-          cargo build --target ${{ matrix.target-arch }}-pc-windows-msvc
+          cargo build --profile fast-build --target ${{ matrix.target-arch }}-pc-windows-msvc
           cp target/${{ matrix.target-arch }}-pc-windows-msvc/debug/uv-trampoline-console.exe trampolines/uv-trampoline-${{ matrix.target-arch }}-console.exe
           cp target/${{ matrix.target-arch }}-pc-windows-msvc/debug/uv-trampoline-gui.exe trampolines/uv-trampoline-${{ matrix.target-arch }}-gui.exe
       - name: "Test new binaries"
@@ -526,7 +526,7 @@ jobs:
       - uses: Swatinem/rust-cache@98c8021b550208e191a6a3145459bfc9fb29c4c0 # v2.8.0
 
       - name: "Build"
-        run: cargo build
+        run: cargo build --profile fast-build
 
       - name: "Upload binary"
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -553,7 +553,7 @@ jobs:
       - uses: Swatinem/rust-cache@98c8021b550208e191a6a3145459bfc9fb29c4c0 # v2.8.0
 
       - name: "Build"
-        run: cargo build
+        run: cargo build --profile fast-build
 
       - name: "Upload binary"
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -585,7 +585,7 @@ jobs:
       - uses: Swatinem/rust-cache@98c8021b550208e191a6a3145459bfc9fb29c4c0 # v2.8.0
 
       - name: "Build"
-        run: cargo build --target x86_64-unknown-linux-musl --bin uv --bin uvx
+        run: cargo build --profile fast-build --target x86_64-unknown-linux-musl --bin uv --bin uvx
 
       - name: "Upload binary"
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -611,7 +611,7 @@ jobs:
 
       - uses: Swatinem/rust-cache@98c8021b550208e191a6a3145459bfc9fb29c4c0 # v2.8.0
       - name: "Build"
-        run: cargo build --bin uv --bin uvx
+        run: cargo build --profile fast-build --bin uv --bin uvx
 
       - name: "Upload binary"
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -637,7 +637,7 @@ jobs:
 
       - uses: Swatinem/rust-cache@98c8021b550208e191a6a3145459bfc9fb29c4c0 # v2.8.0
       - name: "Build"
-        run: cargo build --bin uv --bin uvx
+        run: cargo build --profile fast-build --bin uv --bin uvx
 
       - name: "Upload binary"
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -673,7 +673,7 @@ jobs:
 
       - name: "Build"
         working-directory: ${{ env.UV_WORKSPACE }}
-        run: cargo build --bin uv --bin uvx
+        run: cargo build --profile fast-build --bin uv --bin uvx
 
       - name: "Upload binary"
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -713,7 +713,7 @@ jobs:
 
       - name: "Build"
         working-directory: ${{ env.UV_WORKSPACE }}
-        run: cargo build --target aarch64-pc-windows-msvc
+        run: cargo build --profile fast-build --target aarch64-pc-windows-msvc
 
       - name: "Upload binary"
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
